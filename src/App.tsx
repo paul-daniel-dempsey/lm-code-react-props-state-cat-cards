@@ -105,8 +105,16 @@ function App() {
 			 favFoods: ['milk'],
 			 birthYear: 2021,
 			 catIndex: 1,
-		 }
+		 },
+		 {
+			name: "Captain Catface",
+			species: "Sea Cattain",
+			favFoods: ["fish, rum"],
+			birthYear: 2016,
+			catIndex: 1,
+		  }
  	]);
+	const catCount = cats.length;
 
 	const images = [
 		{
@@ -207,17 +215,19 @@ function App() {
 		}
 	];
 
-	console.log("Our pretties 😻: ", cats)
+	//console.log("Our pretties 😻: ", cats);
+	console.log(catCount);
 	return (
 		<>
 			<Navbar />
-			<Header />
+			<Header catCount={catCount} />
 
 			<main>
 				<div className='cards__wrapper'>
-					{cats
+					{
+					cats
 					.map((cat, index) => ({...cat, catIndex: index}))
-					.map((cat, index) => (
+					.map((cat, index) => ((index < images.length) &&
 						<CatCard catObject={cat} catObjectImg={images[index]}/>
 					))}
 				</div>
