@@ -1,5 +1,4 @@
 import Cat from "./cat";
-import { v4 as uuidv4 } from 'uuid';
 
 const catData: Array<Cat> = [
     {
@@ -8,7 +7,6 @@ const catData: Array<Cat> = [
         species: 'Cat',
         favFoods: ['wet food', 'dry food'],
         birthYear: 2016,
-        catIndex: 1,
      },
      {
         key : '', 
@@ -16,7 +14,6 @@ const catData: Array<Cat> = [
         species: 'Cat',
         favFoods: ['caviar'],
         birthYear: 2016,
-        catIndex: 1,
      },
      {
         key : '',
@@ -24,7 +21,6 @@ const catData: Array<Cat> = [
         species: 'Cat',
         favFoods: ['bugs'],
         birthYear: 2018,
-        catIndex: 1,
      },
      {
         key : '',
@@ -32,7 +28,6 @@ const catData: Array<Cat> = [
         species: 'Scaredy Cat',
         favFoods: ['not cucumbers!'],
         birthYear: 2008,
-        catIndex: 1,
      },
      {
         key : '',
@@ -40,7 +35,6 @@ const catData: Array<Cat> = [
         species: 'Cat',
         favFoods: ['tuna', 'catnip', 'celery'],
         birthYear: 2012,
-        catIndex: 1,
      },
      {
         key : '',
@@ -48,7 +42,6 @@ const catData: Array<Cat> = [
         species: 'Cat',
         favFoods: ['mice'],
         birthYear: 2012,
-        catIndex: 1,
      },
      {
         key : '',
@@ -56,7 +49,6 @@ const catData: Array<Cat> = [
          species: 'Cat',
          favFoods: ['cigarettes', 'coffee'],
          birthYear: 2015,
-         catIndex: 1,
      },
      {
         key : '',
@@ -64,7 +56,6 @@ const catData: Array<Cat> = [
         species: 'Cat',
         favFoods: ['salt'],
         birthYear: 2020,
-        catIndex: 1,
      },
      {
         key : '',
@@ -72,7 +63,6 @@ const catData: Array<Cat> = [
          species: 'Bird?',
          favFoods: ['your soul'],
          birthYear: 2020,
-         catIndex: 1,
      },
      {
         key : '',
@@ -80,7 +70,6 @@ const catData: Array<Cat> = [
         species: 'Cat',
         favFoods: ['tequila', 'bar snax'],
         birthYear: 1995,
-        catIndex: 1,
      },
      {         
         key : '',
@@ -88,7 +77,6 @@ const catData: Array<Cat> = [
          species: 'Hungry Cat',
          favFoods: ['blankets', 'feet', 'tinsel'],
          birthYear: 2003,
-         catIndex: 1,
      },
      {
         key : '',
@@ -96,7 +84,6 @@ const catData: Array<Cat> = [
         species: 'Tiny Cat',
         favFoods: ['milk'],
         birthYear: 2021,
-        catIndex: 1,
      },
      {
         key : '',
@@ -104,11 +91,9 @@ const catData: Array<Cat> = [
         species: "Sea Cattain",
         favFoods: ["fish, rum"],
         birthYear: 2016,
-        catIndex: 1,
       }
  ];
 
-catData.forEach(cat => cat.key = uuidv4());
 console.log(catData);
 export default catData;
 

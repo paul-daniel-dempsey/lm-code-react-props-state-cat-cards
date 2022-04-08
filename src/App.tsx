@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Navbar from './components/navbar';
 import Header from './components/header';
@@ -26,6 +27,7 @@ function App() {
 	const [cats, setCats] = useState<Array<Cat>>(CatData);
 	const images = [
 		{
+			key: '',
 			image: cat1,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY-SA 2.0',
@@ -34,6 +36,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/amblin/'
 		},
 		{
+			key: '',
 			image: cat2,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY-SA 2.0',
@@ -42,6 +45,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/ivva/'
 		},
 		{
+
 			image: cat3,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY-ND 2.0',
@@ -50,6 +54,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/rachephotos/'
 		},
 		{
+			key: '',
 			image: cat4,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY 2.0',
@@ -58,6 +63,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/renarl/'
 		},
 		{
+			key: '',
 			image: cat5,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY-SA 2.0',
@@ -66,6 +72,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/x-oph/'
 		},
 		{
+			key: '',
 			image: cat6,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY-ND 2.0',
@@ -74,6 +81,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/21851382@N04/'
 		},
 		{
+			key: '',
 			image: cat7,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY 2.0',
@@ -82,6 +90,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/pavlovskyy/'
 		},
 		{
+			key: '',
 			image: cat8,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY 2.0',
@@ -90,6 +99,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/darthale/'
 		},
 		{
+			key: '',
 			image: cat9,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY 2.0',
@@ -98,6 +108,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/24039825@N06/'
 		},
 		{
+			key: '',
 			image: cat10,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY 2.0',
@@ -106,6 +117,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/29638108@N06/'
 		},
 		{
+			key: '',
 			image: cat11,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY-SA 2.0',
@@ -114,6 +126,7 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/4braham/'
 		},
 		{
+			key: '',
 			image: cat12,
 			altText: 'Describe this cat!',
 			licenceType: 'CC BY-SA 2.0',
@@ -124,7 +137,12 @@ function App() {
 	];
 	const catCount = (cats.length < images.length ? cats.length : images.length);
 	console.log(catCount);
-	
+
+	cats.forEach((cat, index) => {
+		cat.key = uuidv4();
+		images[index].key = cat.key;
+	});
+
 	return (
 		<>
 			<Navbar />
@@ -134,9 +152,9 @@ function App() {
 				<div className='cards__wrapper'>
 					{
 					cats
-					.map((cat, index) => ({...cat, catIndex: index}))
+					//.map((cat) => ({...cat, key: uuidv4()}))
 					.map((cat, index) => ((index < images.length) &&
-						<CatCard catObject={cat} catObjectImg={images[index]}/>
+						<CatCard catObject={cat} catObjectImg={images.find(image => image.key === cat.key) || images[0]}/>
 					))}
 				</div>
 			</main>
