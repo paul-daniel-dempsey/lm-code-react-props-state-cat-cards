@@ -7,25 +7,29 @@ interface CatCardProps{
     catObjectImg : CatImg;
  }
 
-const CatCard : React.FC<CatCardProps> = ({...props}) => {
+const CatCard : React.FC<CatCardProps> = (props) => {
 
 	console.log(
 		'CatCard receiving props from App?! Come in App?! 😸 Props received are: ',
 		props.catObject
 	);
-
+    
+    // destructure
+    const { name , species, favFoods, birthYear } = props.catObject
+    const { image, altText,licenceType, licenceUrl,attributionName,attributionUrl } = props.catObjectImg
+    
     return (
     <div className="card">
-        <h3 className="card__text card__header">{props.catObject.name}</h3>
-        <p className="card__text">Species: {props.catObject.species}</p>
-        <p className="card__text">Favourite Food(s): {props.catObject.favFoods}</p>
-        <p className="card__text">Birth Year: {props.catObject.birthYear}</p>
-        <CatImage image={props.catObjectImg.image} 
-                    altText={props.catObjectImg.altText} 
-                    licenceType={props.catObjectImg.altText} 
-                    licenceUrl={props.catObjectImg.licenceUrl} 
-                    attributionName={props.catObjectImg.attributionName} 
-                    attributionUrl={props.catObjectImg.attributionUrl}/>
+        <h3 className="card__text card__header">{name}</h3>
+        <p className="card__text">Species: {species}</p>
+        <p className="card__text">Favourite Food(s): {favFoods}</p>
+        <p className="card__text">Birth Year: {birthYear}</p>
+        <CatImage image={image} 
+                    altText={altText} 
+                    licenceType={licenceType} 
+                    licenceUrl={licenceUrl} 
+                    attributionName={attributionName} 
+                    attributionUrl={attributionUrl}/>
     </div>
 );
 };
