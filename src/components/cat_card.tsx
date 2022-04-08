@@ -13,9 +13,9 @@ const CatCard : React.FC<CatCardProps> = (props) => {
 		'CatCard receiving props from App?! Come in App?! 😸 Props received are: ',
 		props.catObject
 	);
-    
+
     // destructure
-    const { name , species, favFoods, birthYear } = props.catObject
+    const { key, name , species, favFoods, birthYear } = props.catObject
     const { image, altText,licenceType, licenceUrl,attributionName,attributionUrl } = props.catObjectImg
     
     return (
@@ -30,6 +30,7 @@ const CatCard : React.FC<CatCardProps> = (props) => {
                     licenceUrl={licenceUrl} 
                     attributionName={attributionName} 
                     attributionUrl={attributionUrl}/>
+        <p className="card__text card__text__small">{key}</p>
     </div>
 );
 };
