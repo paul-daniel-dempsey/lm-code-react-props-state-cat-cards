@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Navbar from './components/navbar';
 import Header from './components/header';
 import Footer from './components/footer';
+
 import Cat from './data/cat';
 import CatCard from './components/cat_card';
 import CatData from './data/cat-data';
@@ -22,10 +23,18 @@ import cat10 from './assets/images/cat10.jpg';
 import cat11 from './assets/images/cat11.jpg';
 import cat12 from './assets/images/cat12.jpg';
 
+import Dog from './data/dog';
+import DogCard from './components/dog_card';
+import DogData from './data/dog-data';
+
+import dog1 from './assets/images/dog1.jpeg';
+import dog2 from './assets/images/dog2.jpeg';
+import dog3 from './assets/images/dog3.jpeg';
+
 function App() {
 
 	const [cats, setCats] = useState<Array<Cat>>(CatData);
-	const images = [
+	const catimages = [
 		{
 			key: '',
 			image: cat1,
@@ -135,26 +144,71 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/x-oph/'
 		}
 	];
-	const catCount = (cats.length < images.length ? cats.length : images.length);
+
+	const [dogs, setDogs] = useState<Array<Dog>>(DogData);
+	const dogimages = [
+		{
+			key: '',
+			image: dog1,
+			altText: 'Describe this dog!',
+			licenceType: 'CC BY-SA 2.0',
+			licenceUrl: 'https://creativecommons.org/licenses/by-sa/2.0/',
+			attributionName: 'amblin',
+			attributionUrl: 'https://www.flickr.com/people/amblin/'
+		},
+		{
+			key: '',
+			image: dog2,
+			altText: 'Describe this dog!',
+			licenceType: 'CC BY-SA 2.0',
+			licenceUrl: 'https://creativecommons.org/licenses/by-sa/2.0/',
+			attributionName: 'ivva',
+			attributionUrl: 'https://www.flickr.com/people/ivva/'
+		},
+		{
+			key: '',
+			image: dog3,
+			altText: 'Describe this dog!',
+			licenceType: 'CC BY-ND 2.0',
+			licenceUrl: 'https://creativecommons.org/licenses/by-nd/2.0/',
+			attributionName: 'Rachele Pettarelli Ph',
+			attributionUrl: 'https://www.flickr.com/people/rachephotos/'
+		},
+	];
+	const catCount = (cats.length < catimages.length ? cats.length : catimages.length);
 	console.log(catCount);
+	const dogCount = (dogs.length < dogimages.length ? dogs.length : dogimages.length);
+	console.log(dogCount);
 
 	cats.forEach((cat, index) => {
 		cat.key = uuidv4();
-		images[index].key = cat.key;
+		catimages[index].key = cat.key;
 	});
+	dogs.forEach((dog,index) =>{
+		dog.key = uuidv4();
+		dogimages[index].key = dog.key;
+	})
 
 	return (
 		<>
 			<Navbar />
-			<Header catCount={catCount} />
+			<Header catCount={catCount} dogCount={dogCount} />
 
 			<main>
 				<div className='cards__wrapper'>
 					{
 					cats
 					//.map((cat) => ({...cat, key: uuidv4()}))
-					.map((cat, index) => ((index < images.length) &&
-						<CatCard catObject={cat} catObjectImg={images.find(image => image.key === cat.key) || images[0]}/>
+					.map((cat, index) => ((index < catimages.length) &&
+						<CatCard catObject={cat} catObjectImg={catimages.find(image => image.key === cat.key) || catimages[0]}/>
+					))}
+				</div>
+				<div className='cards__wrapper'>
+					{
+					dogs
+					//.map((dog) => ({...dog, key: uuidv4()}))
+					.map((dog, index) => ((index < dogimages.length) &&
+						<DogCard dogObject={dog} dogObjectImg={dogimages.find(image => image.key === dog.key) || dogimages[0]}/>
 					))}
 				</div>
 			</main>
@@ -165,4 +219,5 @@ function App() {
 }
 
 export default App;
+
 
