@@ -1,8 +1,10 @@
-import Cat from "./cat";
+import { PetType } from "./pet_type";
+import Pet from "./pet";
 
-const catData: Array<Cat> = [
+const petData: Array<Pet> = [
     {
         key : '',
+        type: "CAT" as PetType,
         name: 'Little Miss Purrfect',
         species: 'Cat',
         favFoods: ['wet food', 'dry food'],
@@ -10,6 +12,7 @@ const catData: Array<Cat> = [
      },
      {
         key : '', 
+        type: "CAT" as PetType,
         name: 'Mr Gwumpy',
         species: 'Cat',
         favFoods: ['caviar'],
@@ -17,6 +20,7 @@ const catData: Array<Cat> = [
      },
      {
         key : '',
+        type: "CAT" as PetType,
         name: 'Dopey',
         species: 'Cat',
         favFoods: ['bugs'],
@@ -24,6 +28,7 @@ const catData: Array<Cat> = [
      },
      {
         key : '',
+        type: "CAT" as PetType,
         name: 'Jumpy',
         species: 'Scaredy Cat',
         favFoods: ['not cucumbers!'],
@@ -31,6 +36,7 @@ const catData: Array<Cat> = [
      },
      {
         key : '',
+        type: "CAT" as PetType,
         name: 'Meowsalot',
         species: 'Cat',
         favFoods: ['tuna', 'catnip', 'celery'],
@@ -38,6 +44,7 @@ const catData: Array<Cat> = [
      },
      {
         key : '',
+        type: "CAT" as PetType,
         name: 'Cindy Clawford',
         species: 'Cat',
         favFoods: ['mice'],
@@ -45,6 +52,7 @@ const catData: Array<Cat> = [
      },
      {
         key : '',
+        type: "CAT" as PetType,
          name: 'Katy Purry',
          species: 'Cat',
          favFoods: ['cigarettes', 'coffee'],
@@ -52,6 +60,7 @@ const catData: Array<Cat> = [
      },
      {
         key : '',
+        type: "CAT" as PetType,
         name: 'Dr. Von Belly-Rub',
         species: 'Cat',
         favFoods: ['salt'],
@@ -59,6 +68,7 @@ const catData: Array<Cat> = [
      },
      {
         key : '',
+        type: "CAT" as PetType,
          name: 'Blobby',
          species: 'Bird?',
          favFoods: ['your soul'],
@@ -66,6 +76,7 @@ const catData: Array<Cat> = [
      },
      {
         key : '',
+        type: "CAT" as PetType,
         name: 'El Taco',
         species: 'Cat',
         favFoods: ['tequila', 'bar snax'],
@@ -73,6 +84,7 @@ const catData: Array<Cat> = [
      },
      {         
         key : '',
+        type: "CAT" as PetType,
          name: 'Nibbles',
          species: 'Hungry Cat',
          favFoods: ['blankets', 'feet', 'tinsel'],
@@ -80,14 +92,37 @@ const catData: Array<Cat> = [
      },
      {
         key : '',
+        type: "CAT" as PetType,
         name: 'BoopySnoot',
         species: 'Tiny Cat',
         favFoods: ['milk'],
         birthYear: 2021,
      },
+     {
+		key : '',
+        type: "DOG" as PetType,
+		name: 'Floofus',
+		species: 'Puppy',
+		favFoods: ['marshmallows'],
+		birthYear: 2020,
+	},
+	{
+		key : '',
+        type: "DOG" as PetType,
+		name: 'Doofus',
+		species: 'Doggo',
+		favFoods: ['porridge', 'dog food'],
+		birthYear: 2010,
+	},
+	{
+		key : '',
+        type: "DOG" as PetType,
+		name: 'Goofus',
+		species: 'Dog',
+		favFoods: ['bouncy balls'],
+		birthYear: 2015,
+	},
  ];
 
-console.log(catData);
-export default catData;
-
-
+console.log(petData);
+export default petData;

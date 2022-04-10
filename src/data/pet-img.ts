@@ -1,4 +1,4 @@
-export default interface CatImg {
+export default interface PetImg {
     image : string;
     altText : string;
 	licenceType: string;

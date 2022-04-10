@@ -6,9 +6,9 @@ import Navbar from './components/navbar';
 import Header from './components/header';
 import Footer from './components/footer';
 
-import Cat from './data/cat';
-import CatCard from './components/cat_card';
-import CatData from './data/cat-data';
+import Pet from './data/pet';
+import PetCard from './components/pet_card';
+import PetData from './data/pet-data';
 
 import cat1 from './assets/images/cat1.jpg';
 import cat2 from './assets/images/cat2.jpg';
@@ -22,19 +22,14 @@ import cat9 from './assets/images/cat9.jpg';
 import cat10 from './assets/images/cat10.jpg';
 import cat11 from './assets/images/cat11.jpg';
 import cat12 from './assets/images/cat12.jpg';
-
-import Dog from './data/dog';
-import DogCard from './components/dog_card';
-import DogData from './data/dog-data';
-
 import dog1 from './assets/images/dog1.jpeg';
 import dog2 from './assets/images/dog2.jpeg';
 import dog3 from './assets/images/dog3.jpeg';
 
 function App() {
 
-	const [cats, setCats] = useState<Array<Cat>>(CatData);
-	const catimages = [
+	const [pets, setPets] = useState<Array<Pet>>(PetData);
+	const petimages = [
 		{
 			key: '',
 			image: cat1,
@@ -142,11 +137,7 @@ function App() {
 			licenceUrl: 'https://creativecommons.org/licenses/by-sa/2.0/',
 			attributionName: 'x-oph',
 			attributionUrl: 'https://www.flickr.com/people/x-oph/'
-		}
-	];
-
-	const [dogs, setDogs] = useState<Array<Dog>>(DogData);
-	const dogimages = [
+		},
 		{
 			key: '',
 			image: dog1,
@@ -175,19 +166,17 @@ function App() {
 			attributionUrl: 'https://www.flickr.com/people/rachephotos/'
 		},
 	];
-	const catCount = (cats.length < catimages.length ? cats.length : catimages.length);
-	console.log(catCount);
-	const dogCount = (dogs.length < dogimages.length ? dogs.length : dogimages.length);
-	console.log(dogCount);
 
-	cats.forEach((cat, index) => {
-		cat.key = uuidv4();
-		catimages[index].key = cat.key;
+	let catCount = 0;
+	let dogCount = 0;
+	pets.forEach((pet) => {
+		(pet.type==="CAT"? catCount+=1 : dogCount+=1);
 	});
-	dogs.forEach((dog,index) =>{
-		dog.key = uuidv4();
-		dogimages[index].key = dog.key;
-	})
+
+	pets.forEach((pet, index) => {
+		pet.key = uuidv4();
+		petimages[index].key = pet.key;
+	});
 
 	return (
 		<>
@@ -197,18 +186,10 @@ function App() {
 			<main>
 				<div className='cards__wrapper'>
 					{
-					cats
-					//.map((cat) => ({...cat, key: uuidv4()}))
-					.map((cat, index) => ((index < catimages.length) &&
-						<CatCard catObject={cat} catObjectImg={catimages.find(image => image.key === cat.key) || catimages[0]}/>
-					))}
-				</div>
-				<div className='cards__wrapper'>
-					{
-					dogs
-					//.map((dog) => ({...dog, key: uuidv4()}))
-					.map((dog, index) => ((index < dogimages.length) &&
-						<DogCard dogObject={dog} dogObjectImg={dogimages.find(image => image.key === dog.key) || dogimages[0]}/>
+					pets
+					//.map((pet) => ({...pet, key: uuidv4()}))
+					.map((pet, index) => ((index < petimages.length) &&
+						<PetCard petObject={pet} petObjectImg={petimages.find(image => image.key === pet.key) || petimages[0]}/>
 					))}
 				</div>
 			</main>

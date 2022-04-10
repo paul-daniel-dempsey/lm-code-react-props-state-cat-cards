@@ -1,25 +1,25 @@
 import React from "react";
-import CatImg from "../data/cat-img";
-import Dog from "../data/dog";
-import CatImage from "./cat_image";
+import Pet from "../data/pet";
+import PetImg from "../data/pet-img";
+import PetImage from "./pet_image";
 
-interface dogProps {
-    dogObject : Dog
-    dogObjectImg : CatImg;
+interface petProps {
+    petObject : Pet
+    petObjectImg : PetImg;
 }
 
-const DogCard : React.FC <dogProps> = (props) => {
+const PetCard : React.FC <petProps> = (props) => {
 
-    const {key, name , species, favFoods, birthYear } = props.dogObject
-    const {image, altText,licenceType, licenceUrl,attributionName,attributionUrl } = props.dogObjectImg
+    const {key, type, name , species, favFoods, birthYear } = props.petObject
+    const {image, altText,licenceType, licenceUrl,attributionName,attributionUrl } = props.petObjectImg
 
     return (
         <div className="card">
-        <h3 className="card__text card__header">DOG:{name}</h3>
+        <h3 className="card__text card__header">{type}:{name}</h3>
         <p className="card__text">Species: {species}</p>
         <p className="card__text">Favourite Food(s): {favFoods}</p>
         <p className="card__text">Birth Year: {birthYear}</p>
-        <CatImage image={image} 
+        <PetImage image={image} 
                     altText={altText} 
                     licenceType={licenceType} 
                     licenceUrl={licenceUrl} 
@@ -30,4 +30,4 @@ const DogCard : React.FC <dogProps> = (props) => {
     );
 }
 
-export default DogCard;
+export default PetCard;
