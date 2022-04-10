@@ -1,4 +1,5 @@
 export default interface PetImg {
+    key : string;
     image : string;
     altText : string;
 	licenceType: string;
